@@ -2,3 +2,5 @@ apiVersion: kudo.dev/v1beta1
 parameters:
   - name: foo
     required: true
+  - name: bar
+    required: true

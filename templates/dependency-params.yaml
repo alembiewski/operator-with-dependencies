@@ -1,1 +1,2 @@
 foo: "{{ .Params.foo }}"
+bar: "{{ .Params.bar }}"
