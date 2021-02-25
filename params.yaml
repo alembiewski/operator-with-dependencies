@@ -1,0 +1,4 @@
+apiVersion: kudo.dev/v1beta1
+parameters:
+  - name: foo
+    default: "bar"

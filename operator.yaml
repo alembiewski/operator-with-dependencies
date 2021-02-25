@@ -1,0 +1,40 @@
+apiVersion: kudo.dev/v1beta1
+name: "operator"
+operatorVersion: "0.0.1"
+appVersion: "1.0.0"
+kubernetesVersion: 1.19
+tasks:
+  - name: dependency
+    kind: KudoOperator
+    spec:
+      package: "./dependency"
+      parameterFile: dependency-params.yaml
+
+plans:
+  deploy:
+    strategy: serial
+    phases:
+      - name: deploy-dependency
+        strategy: serial
+        steps:
+          - name: deploy-dependency
+            tasks:
+              - dependency
+  update:
+    strategy: serial
+    phases:
+      - name: update-dependency
+        strategy: serial
+        steps:
+          - name: update-dependency
+            tasks:
+              - dependency
+  upgrade:
+    strategy: serial
+    phases:
+      - name: upgrade-dependency
+        strategy: serial
+        steps:
+          - name: upgrade-dependency
+            tasks:
+              - dependency

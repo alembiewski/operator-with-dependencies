@@ -1,0 +1,40 @@
+apiVersion: kudo.dev/v1beta1
+name: "dependency"
+operatorVersion: "0.0.1"
+appVersion: "1.0.0"
+kubernetesVersion: 1.19
+tasks:
+  - name: dummy
+    kind: Dummy
+    spec:
+      done: true
+
+plans:
+  deploy:
+    strategy: serial
+    phases:
+      - name: dummy
+        strategy: serial
+        steps:
+          - name: dummy
+            tasks:
+              - dummy
+  update:
+    strategy: serial
+    phases:
+      - name: dummy
+        strategy: serial
+        steps:
+          - name: dummy
+            tasks:
+              - dummy
+
+  upgrade:
+    strategy: serial
+    phases:
+      - name: dummy
+        strategy: serial
+        steps:
+          - name: dummy
+            tasks:
+              - dummy
